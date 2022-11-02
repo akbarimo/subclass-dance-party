@@ -1,10 +1,11 @@
-// Creates and returns a new dancer object that can step
 var makeDancer = function(top, left, timeBetweenSteps) {
-  this.$node = $('<span class="dancer"></span>');
+  this.puffles = ['img/blue_puffle.png', 'img/red_puffle.png', 'img/purple_puffle.png', 'img/green_puffle.png', 'img/pink_puffle.png'];
+  this.randomIndex = Math.floor(Math.random() * ((this.puffles.length - 1) + 1));
+  this.$node = $('<img class="blue_puffle" src=""></img>');
   this.stepTime = timeBetweenSteps;
   this.setPosition(top, left);
   this.step();
-
+  this.$node.attr('src', this.puffles[this.randomIndex]);
 };
 
 makeDancer.prototype.step = function() {
